@@ -1,31 +1,22 @@
-import argparse, logging
 from collections import defaultdict
-from utils import generate_random_graph
 from algorithms import find_minimum_vertex_cover, greedy_vertex_cover
-from utils import GRAPH_SIZES, MAXIMUM_NUMBER_EDGES, SEED, log
+from utils import MAXIMUM_NUMBER_EDGES, SIZES, SEED, log
 import pickle
 
-def run():
+graphs = pickle.load(open(f"../results/all_graphs.pickle", "rb"))
+
+def run(algorithm, name):
     results = defaultdict(list)
-
-    for size in GRAPH_SIZES:
-            for max_edges in MAXIMUM_NUMBER_EDGES:
-                log.info(f"Graf size: {size}, max_edges: {max_edges}")
-                G = generate_random_graph(SEED, size, max_edges)
-
-                log.info(f"Running Bruteforce size {size}, seed {SEED} and maximum number of edges {max_edges}")
-                results['bruteforce'].append(find_minimum_vertex_cover(G))
-
-                #log.info(f"Running Bruteforce Bitwise size {size}, seed {SEED} and maximum number of edges {max_edges}")
-                #results['bruteforce_bitwise'].append(bruteforce_bitwise(G))
-
-                log.info(f"Running Greedy Vertex Cover size {size}, seed {SEED} and maximum number of edges {max_edges}")
-                results['greedy_vertex_cover'].append(greedy_vertex_cover(G))
-
-                log.info(f"Finished running algorithms for graph with size {size}, seed {SEED} and maximum number of edges {max_edges}")
-                
-            pickle.dump(results, open(f"../results/results_{size}.pickle", "wb"))
     
-    
+    for max_edges in MAXIMUM_NUMBER_EDGES:
+        for size in range(4, 50):
+            log.info(f"Running {name} algorithm for graph with size {size}, seed {SEED} and maximum number of edges {max_edges}")
+            results[max_edges][size] = algorithm(graphs[max_edges][size])
+            log.info(f"Finished running {name} algorithm for graph with size {size}, seed {SEED} and maximum number of edges {max_edges}")
+        
+    pickle.dump(results, open(f"../results/results_complete_{name}.pickle", "wb"))
+
+
 if __name__ == "__main__":
-    run()
+    run(find_minimum_vertex_cover, "bruteforce")
+    #run(greedy_vertex_cover, "greedy")
