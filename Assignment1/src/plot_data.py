@@ -70,11 +70,11 @@ def plot_y_number_of_solutions_tested_x_number_of_vertices(results, name, log=Fa
 def main():
     
     bruteforce_results = import_data("../results/results_complete_find_bruteforce.pickle")
-    greedy_results = import_data("../results/results_complete_greedy.pickle")
+    #greedy_results = import_data("../results/results_complete_greedy.pickle")
 
     # plot_y_number_operations_x_number_of_vertices(bruteforce_results, "bruteforce", log=True, show=True)
     # plot_y_time_x_number_of_vertices(bruteforce_results, "bruteforce", log=True, show=True)
-    # plot_y_number_of_solutions_tested_x_number_of_vertices(bruteforce_data, "bruteforce", log=True, save=True)
+    plot_y_number_of_solutions_tested_x_number_of_vertices(bruteforce_results, "bruteforce", log=True, save=True)
 
     # plot_y_number_operations_x_number_of_vertices(greedy_results, "greedy", log=True, show=True)
     # plot_y_time_x_number_of_vertices(greedy_results, "greedy", log=True, show=True)
