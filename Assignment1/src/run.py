@@ -1,6 +1,6 @@
 from collections import defaultdict
 from algorithms import find_minimum_vertex_cover, greedy_vertex_cover
-from utils import MAXIMUM_NUMBER_EDGES, SIZES, SEED, log
+from utils import MAXIMUM_NUMBER_EDGES, SEED, log
 import pickle
 
 graphs = pickle.load(open(f"../results/all_graphs.pickle", "rb"))

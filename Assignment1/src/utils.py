@@ -13,7 +13,7 @@ SEED = 103645
 
 SIZES = 256
 
-Result = namedtuple('Result', ['function', 'result', 'operations', 'time', 'solution_counter'])
+Result = namedtuple('Result', ['function', 'result', 'operations', 'time', 'solutions'])
 
 def generate_random_graph(seed, size=10, maximum_number_edges=0.8):
     return nx.fast_gnp_random_graph(size, maximum_number_edges, seed=seed)
@@ -68,6 +68,6 @@ def convert_to_json(data, path):
     json.dump(new_data, open(path, "w"), indent=4)
 
 if __name__ == "__main__":
-    convert_to_json(import_data("../results/results_complete_greedy_full.pickle"),
-                    "../results/results_complete_greedy_full.json")
+    convert_to_json(import_data("../results/results_complete_bruteforce.pickle"),
+                    "../results/results_complete_bruteforce.json")
     #save_graphs()
