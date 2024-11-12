@@ -68,6 +68,6 @@ def convert_to_json(data, path):
     json.dump(new_data, open(path, "w"), indent=4)
 
 if __name__ == "__main__":
-    convert_to_json(import_data("../results/results_complete_bruteforce.pickle"),
-                    "../results/results_complete_bruteforce.json")
+    convert_to_json(import_data("../results/results_complete_greedy.pickle"),
+                    "../results/results_complete_greedy.json")
     #save_graphs()

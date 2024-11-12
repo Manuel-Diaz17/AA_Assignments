@@ -9,7 +9,7 @@ def run(algorithm, name):
     results = defaultdict(dict)
     
     for max_edges in MAXIMUM_NUMBER_EDGES:
-        for size in range(4, 29):
+        for size in range(4, 256):
             log.info(f"Running {name} algorithm for graph with size {size}, seed {SEED} and maximum number of edges {max_edges}")
             results[max_edges][size] = algorithm(graphs[max_edges][size])
             log.info(f"Finished running {name} algorithm for graph with size {size}, seed {SEED} and maximum number of edges {max_edges}")
@@ -18,5 +18,5 @@ def run(algorithm, name):
 
 
 if __name__ == "__main__":
-    run(find_minimum_vertex_cover, "bruteforce")
+    run(greedy_vertex_cover, "greedy")
     #run(greedy_vertex_cover, "greedy")
