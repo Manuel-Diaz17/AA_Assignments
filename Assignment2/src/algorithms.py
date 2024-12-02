@@ -65,7 +65,7 @@ def greedy_vertex_cover(graph):
     return cover, operation_count, solutions_count
 
 @count_time
-def randomized_vertex_cover_max(graph, iterations=1000):
+def randomized_vertex_cover(graph, iterations=1000):
     """
     Randomized algorithm for finding an approximate Minimum Vertex Cover, starting with greater subsets.
     """

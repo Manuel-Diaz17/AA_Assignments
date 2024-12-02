@@ -10,6 +10,8 @@ log = logging.getLogger(__name__)
 
 EDGE_DENSITIES = [0.125, 0.25, 0.5, 0.75]
 
+ITERATIONS = [100, 500, 1000, 5000, 10000]
+
 SEED = 103645
 
 SIZES = 256
