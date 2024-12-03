@@ -27,14 +27,14 @@ def run_other_graphs(algorithm, name, graph):
 
 
 def run_all():
-    for algorithm, name in [(randomized_vertex_cover, "randomized_vertex_cover")]:
+    for algorithm, name in [(randomized_vertex_cover_min, "randomized_vertex_cover_min")]:
         for max_iterations in ITERATIONS:
             results = defaultdict(dict)
             for max_edges in EDGE_DENSITIES:
                 for size in range(4, 256):
-                    log.info(f"Running adaptive randomized algorithm for graph with size {size}, seed {SEED} and maximum number of edges {max_edges}")
+                    log.info(f"Running randomized algorithm for graph with size {size}, seed {SEED} and maximum number of edges {max_edges}")
                     results[max_edges][size] = algorithm(graphs[max_edges][size], max_iterations)
-                    log.info(f"Finished running adaptive randomized algorithm for graph with size {size}, seed {SEED} and maximum number of edges {max_edges}")
+                    log.info(f"Finished running randomized algorithm for graph with size {size}, seed {SEED} and maximum number of edges {max_edges}")
 
             pickle.dump(results, open(f"../results/{name}/results_{name}_{max_iterations}.pickle", "wb"))
 

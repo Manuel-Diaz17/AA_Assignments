@@ -81,8 +81,12 @@ def read_graph_from_txt(filename):
 
 
 def convert_all_pickle_to_json():
-    files = [f for f in os.listdir("../results") if f.startswith("results_") and f.endswith(".pickle")]
+    files = [f for f in os.listdir("../results/randomized_vertex_cover") if f.startswith("results_") and f.endswith(".pickle")]
     for file in files:
         print(f"Converting {file} to json")
-        data = import_data(f"../results/{file}")
-        convert_to_json(data, f"../results/json/{file.replace('.pickle', '.json')}")
+        data = import_data(f"../results/randomized_vertex_cover/{file}")
+        convert_to_json(data, f"../results/randomized_vertex_cover/json/{file.replace('.pickle', '.json')}")
+
+
+if __name__ == "__main__":
+    convert_all_pickle_to_json()
