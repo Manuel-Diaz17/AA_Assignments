@@ -1,0 +1,27 @@
+{
+    "results_randomized_vertex_cover_100.pickle": [
+        11,
+        93,
+        0.1057692307692308
+    ],
+    "results_randomized_vertex_cover_1000.pickle": [
+        18,
+        86,
+        0.1730769230769231
+    ],
+    "results_randomized_vertex_cover_10000.pickle": [
+        25,
+        79,
+        0.2403846153846154
+    ],
+    "results_randomized_vertex_cover_500.pickle": [
+        17,
+        87,
+        0.1634615384615385
+    ],
+    "results_randomized_vertex_cover_5000.pickle": [
+        21,
+        83,
+        0.2019230769230769
+    ]
+}

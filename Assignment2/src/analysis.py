@@ -18,7 +18,7 @@ def plot_y_number_of_solutions_tested_x_number_of_vertices(results, name, log=Fa
         #plt.title(f"Number of solutions tested vs number of vertices for {name} algorithm")
         plt.legend()
     if save:
-        plt.savefig(f"../charts/randomized_vertex_cover/{name}_number_of_solutions_tested_vs_number_of_vertices.png")
+        plt.savefig(f"../charts/randomized_vertex_cover_min/{name}_number_of_solutions_tested_vs_number_of_vertices.png")
     if show:
         plt.show()
     plt.close()
@@ -40,7 +40,7 @@ def plot_y_number_operations_x_number_of_vertices(results, name, log=False, save
         #plt.title(f"Number of operations vs number of vertices for {name} algorithm")
         plt.legend()
     if save:
-        plt.savefig(f"../charts/randomized_vertex_cover/{name}_number_operations_vs_number_of_vertices.png")
+        plt.savefig(f"../charts/randomized_vertex_cover_min/{name}_number_operations_vs_number_of_vertices.png")
     if show:
         plt.show()
     plt.close()
@@ -62,7 +62,7 @@ def plot_y_time_x_number_of_vertices(results, name, log=False, save=False, show=
         #plt.title(f"Time vs number of vertices for {name} algorithm")
         plt.legend()
     if save:
-        plt.savefig(f"../charts/randomized_vertex_cover/{name}_time_vs_number_of_vertices.png")
+        plt.savefig(f"../charts/randomized_vertex_cover_min/{name}_time_vs_number_of_vertices.png")
     if show:
         plt.show()
     plt.close()
@@ -82,6 +82,7 @@ def main():
 
     for result, file in zip(results, files):
         plot_all_charts(result, file.replace("results_", "").replace(".pickle",""), log=True, save=True, show=False)
+
 
 if __name__ == "__main__":
     main()

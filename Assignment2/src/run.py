@@ -27,7 +27,7 @@ def run_other_graphs(algorithm, name, graph):
 
 
 def run_all():
-    for algorithm, name in [(randomized_vertex_cover_min, "randomized_vertex_cover_min")]:
+    for algorithm, name in [(randomized_vertex_cover, "randomized_vertex_cover")]:
         for max_iterations in ITERATIONS:
             results = defaultdict(dict)
             for max_edges in EDGE_DENSITIES:
