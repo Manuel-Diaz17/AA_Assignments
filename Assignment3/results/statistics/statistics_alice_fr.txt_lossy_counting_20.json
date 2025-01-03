@@ -1,0 +1,12 @@
+{
+    "mean_absolute_error": 14.93042933249765,
+    "mean_relative_error": 4.190227653327567,
+    "mean_accuracy_ratio": 3.207777010895728,
+    "smallest_value": 1171,
+    "largest_value": 1174,
+    "mean": 1171.392857142857,
+    "mean_absolute_deviation": 0.5331632653061108,
+    "standard_deviation": 0.6729087029077414,
+    "maximum_deviation": 2.6071428571428896,
+    "variance": 0.45280612244897905
+}
