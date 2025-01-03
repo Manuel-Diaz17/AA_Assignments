@@ -24,10 +24,11 @@ def process_file(file_path, language='en'):
     # Tokenize the text into individual words
     word_tokens = word_tokenize(text)
 
-    # Filter the tokens: keep only alphabetic words not in stopwords and convert to uppercase
-    filtered_text = [word.upper() for word in word_tokens if word not in stop_words and word.isalpha()]
-
-    return ''.join(filtered_text)
+    # Filter the tokens: keep only alphabetic words not in stopwords and convert to lowercase
+    filtered_text = [word.lower() for word in word_tokens if word not in stop_words and word.isalpha()]
+    
+    # Join the filtered words with a single space
+    return ' '.join(filtered_text)
 
 
 def get_stopwords(language):
@@ -58,7 +59,7 @@ def main():
 
             # Process the file and write the filtered content to a new file
             processed_file = process_file(os.path.join(original_books_dir, filename), lang)
-            with open(os.path.join('../books', filename), 'w') as file:
+            with open(os.path.join('../books/processed_books', filename), 'w') as file:
                 file.write(processed_file)
 
 

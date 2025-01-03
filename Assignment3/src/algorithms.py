@@ -7,47 +7,56 @@ from utils import count_time  # Changed the decorator name to something differen
 
 @count_time
 def count_exactly(input_text):
-    # Maps the exact frequency of each character
+    # Maps the exact frequency of each word
     frequency_map = defaultdict(int)
 
-    for char in input_text:
-        frequency_map[char] += 1
+    # Split the input text into words
+    words = input_text.split()
 
+    for word in words:
+        frequency_map[word] += 1
+                                                                                                                                                                                                                                                                                                                               
     return frequency_map
 
 
 @count_time
-def approximate_counter(input_text, sampling_rate=1 / 2):
+def approximate_counter(input_text, sampling_rate = 1 / 2):
     # Approximate counter using probabilistic sampling
     frequency_map = defaultdict(int)
 
-    for char in input_text:
+    # Split the input text into words
+    words = input_text.split()
+
+    for word in words:
         if random.random() < sampling_rate:
-            frequency_map[char] += 1
+            frequency_map[word] += 1
 
     # Scale the counts to estimate the actual frequencies
     scale_factor = int(1 / sampling_rate)
-    for char in frequency_map:
-        frequency_map[char] *= scale_factor
+    for word in frequency_map:
+        frequency_map[word] *= scale_factor
 
     return frequency_map
 
 
 @count_time
 def lossy_frequency_counter(input_text: str, segment_size: int = 10):
-    # Lossy Counting Algorithm
+    # Lossy Counting Algorithm for words
     frequency_map = defaultdict(int)
-    total_chars = 0
+    total_words = 0
     current_threshold = 0
 
-    for char in input_text:
-        if char not in frequency_map:
-            frequency_map[char] = current_threshold + 1
-        else:
-            frequency_map[char] += 1
+    # Split the input text into words
+    words = input_text.split()
 
-        total_chars += 1
-        new_threshold = floor(total_chars / segment_size)
+    for word in words:
+        if word not in frequency_map:
+            frequency_map[word] = current_threshold + 1
+        else:
+            frequency_map[word] += 1
+
+        total_words += 1
+        new_threshold = floor(total_words / segment_size)
 
         if new_threshold != current_threshold:
             current_threshold = new_threshold
